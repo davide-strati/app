@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+    <!--  Style  -->
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+
+<body id="style__container" class="theme--dark">
+    <div class="main">
+        <div class="calcolatore">
+            <div class="header">
+                <div class="titolo__container">
+                    <h3>calc</h3>
+                </div>
+                <div class="stile__container">
+                    <div class="etichette__container">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                    </div>
+                    <div class="toggle__container">
+                        <p>THEME</p>
+                        <div class="toggle toggle--theme">
+                           <input type="radio" class="toggle-option" id="stile-1" name="toggle_option" onClick="cambiaTema('theme--dark')" checked>
+                           <input type="radio" class="toggle-option" id="stile-2" name="toggle_option" onClick="cambiaTema('theme--light')">
+                           <input type="radio" class="toggle-option" id="stile-3" name="toggle_option" onClick="cambiaTema('theme--viola')">
+                           <label for="stile-1"></label>
+                           <label for="stile-2"></label>
+                           <label for="stile-3"></label>
+                           <div class="toggle_option_slider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="display">
+                <h4 id="ris" class="risultato"></h4>
+            </div>
+            <div class="pad__grid">
+                <div class="tasto tasto--base" onClick="ik(7)" value="7">
+                    <p>7</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(8)" value="8">
+                    <p>8</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(9)" value="9">
+                    <p>9</p>
+                </div>
+                <div class="tasto tasto--grigio" onclick="cancella()" value="cancella">
+                    <p>DEL</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(4)" value="4">
+                    <p>4</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(5)" value="5">
+                    <p>5</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(6)" value="6">
+                    <p>6</p>
+                </div>
+                <div class="tasto tasto--base" onClick="operazione('somma')" calue="somma">
+                    <p>+</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(1)" value="1">
+                    <p>1</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(2)" value="2">
+                    <p>2</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(3)" value="3">
+                    <p>3</p>
+                </div>
+                <div class="tasto tasto--base" onClick="operazione('sottrai')" value="sottrai">
+                    <p>-</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik('.')" value=",">
+                    <p>,</p>
+                </div>
+                <div class="tasto tasto--base" onClick="ik(0)" value="0">
+                    <p>0</p>
+                </div>
+                <div class="tasto tasto--base" onClick="operazione('dividi')" value="dividi">
+                    <p>/</p>
+                </div>
+                <div class="tasto tasto--base" onClick="operazione('moltiplica')" value="moltiplica">
+                    <p>x</p>
+                </div>
+
+                <div class="tasto tasto--large tasto--grigio" onClick="resetta()" value="reset">
+                    <p>RESET</p>
+                </div>
+                <div class="tasto tasto--large tasto--rosso" onClick="chiudi()" value="uguale">
+                    <p>=</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="calcoli.js"></script>
+    <script src="ToggleTheme.js"></script>
+
+</body>
+
+</html>
