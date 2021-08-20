@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class='theme--dark'>
 
 <head>
     <meta charset="UTF-8">
@@ -10,11 +10,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
     <!--  Style  -->
+    <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="style.css">
     <title>Calculator</title>
 </head>
 
-<body id="style__container" class="theme--dark">
+<body>
     <div class="main">
         <div class="calcolatore">
             <div class="header">
@@ -29,13 +30,13 @@
                     </div>
                     <div class="toggle__container">
                         <p>THEME</p>
-                        <div class="toggle toggle--theme">
-                           <input type="radio" class="toggle-option" id="stile-1" name="toggle_option" onClick="cambiaTema('theme--dark')" checked>
-                           <input type="radio" class="toggle-option" id="stile-2" name="toggle_option" onClick="cambiaTema('theme--light')">
-                           <input type="radio" class="toggle-option" id="stile-3" name="toggle_option" onClick="cambiaTema('theme--viola')">
-                           <label for="stile-1"></label>
-                           <label for="stile-2"></label>
-                           <label for="stile-3"></label>
+                        <div id="toggler" class="toggle toggle--theme">
+                           <input type="radio" class="toggle-option" id="theme--dark" name="toggle_option" checked >
+                           <input type="radio" class="toggle-option" id="theme--light" name="toggle_option" >
+                           <input type="radio" class="toggle-option" id="theme--purple" name="toggle_option" >
+                           <label for="theme--dark"></label>
+                           <label for="theme--light"></label>
+                           <label for="theme--purple"></label>
                            <div class="toggle_option_slider"></div>
                         </div>
                     </div>
@@ -45,65 +46,66 @@
             <div class="display">
                 <h4 id="ris" class="risultato"></h4>
             </div>
-            <div class="pad__grid">
-                <div class="tasto tasto--base" onClick="ik(7)" value="7">
+            <div id="pad-grid" class="pad__grid">
+                <div class="tasto tasto--base number" value="7">
                     <p>7</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(8)" value="8">
+                <div class="tasto tasto--base number" value="8">
                     <p>8</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(9)" value="9">
+                <div class="tasto tasto--base number" value="9">
                     <p>9</p>
                 </div>
-                <div class="tasto tasto--grigio" onclick="cancella()" value="cancella">
+                <div class="tasto tasto--special"  value="cancella">
                     <p>DEL</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(4)" value="4">
+                <div class="tasto tasto--base number" value="4">
                     <p>4</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(5)" value="5">
+                <div class="tasto tasto--base number" value="5">
                     <p>5</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(6)" value="6">
+                <div class="tasto tasto--base number" value="6">
                     <p>6</p>
                 </div>
-                <div class="tasto tasto--base" onClick="operazione('somma')" calue="somma">
+                <div class="tasto tasto--base operation" value="somma">
                     <p>+</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(1)" value="1">
+                <div class="tasto tasto--base number" value="1">
                     <p>1</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(2)" value="2">
+                <div class="tasto tasto--base number" value="2">
                     <p>2</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(3)" value="3">
+                <div class="tasto tasto--base number" value="3">
                     <p>3</p>
                 </div>
-                <div class="tasto tasto--base" onClick="operazione('sottrai')" value="sottrai">
+                <div class="tasto tasto--base operation" value="sottrai">
                     <p>-</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik('.')" value=",">
+                <div class="tasto tasto--base number" value=".">
                     <p>,</p>
                 </div>
-                <div class="tasto tasto--base" onClick="ik(0)" value="0">
+                <div class="tasto tasto--base number" value="0">
                     <p>0</p>
                 </div>
-                <div class="tasto tasto--base" onClick="operazione('dividi')" value="dividi">
+                <div class="tasto tasto--base operation" value="dividi">
                     <p>/</p>
                 </div>
-                <div class="tasto tasto--base" onClick="operazione('moltiplica')" value="moltiplica">
+                <div class="tasto tasto--base operation" value="moltiplica">
                     <p>x</p>
                 </div>
 
-                <div class="tasto tasto--large tasto--grigio" onClick="resetta()" value="reset">
+                <div class="tasto tasto--large tasto--special" value="reset">
                     <p>RESET</p>
                 </div>
-                <div class="tasto tasto--large tasto--rosso" onClick="chiudi()" value="uguale">
+                <div class="tasto tasto--large tasto--end" value="uguale">
                     <p>=</p>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="calcoli.js"></script>
     <script src="ToggleTheme.js"></script>
 

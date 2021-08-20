@@ -1,0 +1,89 @@
+:root {
+    /* Colors */
+    --grigio-chiaro: rgb(58, 71, 100);
+    --grigio-medio: hsl(223, 31%, 20%);
+    --grigio-scuro: hsl(224, 36%, 15%);
+
+    --tasto-grigio: hsl(225, 21%, 49%);
+    --tasto-grigio-ombra: hsl(224, 28%, 35%);
+    --tasto-rosso: hsl(6, 63%, 50%);
+    --tasto-rosso-ombra: hsl(6, 70%, 34%);
+    --tasto-chiaro: hsl(30, 25%, 89%);
+    --tasto-chiaro-ombra: hsl(28, 16%, 65%);
+
+    --testo-grigio-blu: hsl(221, 14%, 31%);
+    --testo-grigio-arancio: hsl(28, 16%, 65%);
+
+    --bianco-chiaro: hsl(0, 0%, 93%);
+    --bianco-medio: hsl(0, 0%, 90%);
+    --bianco-scuro: hsl(0, 5%, 81%);
+
+    --tasto-cyan: hsl(185, 42%, 37%);
+    --tasto-cyan-ombra: hsl(185, 42%, 37%);
+    --tasto-arancione: hsl(25, 98%, 40%);
+    --tasto-arancione-ombra: hsl(25, 99%, 27%);
+    --tasto-grigio-giallo: hsl(45, 7%, 89%);
+    --tasto-grgio-giallo-ombra: hsl(35, 11%, 61%);
+
+    --testo-grigio-giallo: hsl(60, 10%, 19%);
+    --testo-bianco: #fff;
+
+    --purple: hsl(268, 75%, 9%);
+    --purple-medio: hsl(268, 71%, 12%);
+
+    --tasto-purple: hsl(281, 89%, 26%);
+    --tasto-purple-ombra: hsl(285, 91%, 52%);
+    --tasto-azz: hsl(176, 100%, 44%);
+    --tasto-azz-ombra: hsl(177, 92%, 70%);
+    --tasto-violet: hsl(268, 47%, 21%);
+    --tasto-violet-ombra: hsl(290, 70%, 36%);
+
+    --testo-giallo: hsl(52, 100%, 62%);
+    --testo-blu: hsl(52, 100%, 62%);
+
+    /*  Typo */
+    --font-size: 32px;
+}
+
+/* Dark-theme */
+.theme--dark {
+    /* BGS */
+    --body-bg: var(--grigio-chiaro);
+    --display-bg: var(--grigio-scuro);
+    --keypad-bg: var(--grigio-medio);
+    /*  Text */
+    --text-color: var(--testo-grgio-blu);
+    --text-color-inverse: var(--testo-bianco);
+    --title-color: var(--testo-bianco);
+    --toggle-state: var(--testo-bianco);
+    --toggle-slider-color: var(--tasto-rosso);
+    /* Keypad */;
+    --key-bg: var(--tasto-grigio-giallo);
+    --key-shadow: var(--tasto-grgio-giallo-ombra);
+    --key-bg-special:var(--tasto-grigio);
+    --key-shadow-special: var(--tasto-grigio-ombra);
+    --key-bg-end: var(--tasto-rosso);
+    --key-shadow-end:var(--tasto-rosso-ombra);
+}
+
+/* Light-theme */
+.theme--light {
+    /* BGS */
+    --body-bg: var(--bianco-medio);
+    --display-bg: var(--bianco-chiaro);
+    --keypad-bg: var(--bianco-scuro);
+    /*  Text */
+    --text-color: var(--testo-grigio-giallo);
+    --text-color-inverse: var(--testo-grigio-giallo);
+    --title-color: var(--testo-grigio-giallo);
+    --toggle-state: var(--testo-grigio-giallo);
+    --toggle-slider-color:var(--tasto-arancione);
+
+    /* Keypad */;
+    --key-bg: var(--tasto-grigio-giallo);
+    --key-shadow: var(--tasto-grgio-giallo-ombra);
+    --key-bg-special:var(--tasto-cyan);
+    --key-shadow-special: var(--tasto-cyan-ombra);
+    --key-bg-end: var(--tasto-arancione);
+    --key-shadow-end:var(--tasto-arancione-ombra);
+}

@@ -1,24 +1,24 @@
-var el = document.getElementById('style__container');
-var classeAttiva = el.className;
-// document.getElementById('stile-1').addEventListener('click', function(){
-//     classeAttiva = el.className;
-//     el.classList.remove(classeAttiva);
-//     el.classList.add('theme--dark');
-// });
-// document.getElementById('stile-2').addEventListener('click', function(){
-//     classeAttiva = el.className;
-//     el.classList.remove(classeAttiva);
-//     el.classList.add('theme--light');
-// });
-// document.getElementById('stile-3').addEventListener('click', function(){
-//     classeAttiva = el.className;
-//     el.classList.remove(classeAttiva);
-//     el.classList.add('theme--viola');
-// });
+var wrapper = document.getElementsByTagName('html')[0];
 
-function cambiaTema(t) {
-    console.log(t);
-    classeAttiva = el.className;
-    el.classList.remove(classeAttiva);
-    el.classList.add(t);
+var toggler = document.getElementById('toggler');
+
+
+function changeTheme(e) {
+    var style, target;
+    target = e.target;
+    if(target.hasAttribute('id')) {
+        style = target.getAttribute('id');
+        wrapper.className = style;
+        console.log(wrapper.className);
+    }  
+    
 }
+
+
+toggler.addEventListener('click', function(e){
+    changeTheme(e);
+});
+
+
+
+

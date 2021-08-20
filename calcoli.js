@@ -1,112 +1,81 @@
-var temp = '';
-var a = '';
-var el = document.getElementById("ris");
-var primo = true;
-var prossOp = '';
-var chiuso = false;
+var a, b, temp, ris, prevOp;
+var $keyValue = '';
+temp = '';
+a = 0;
 
-/*
-function ik(val) { 
-    if(val){
-        temp = temp + "" + val;
-        el.textContent = temp;
-    }    
+
+function display(num) {
+    $('#ris').text(num);
 }
 
-function somma() {
-    a = parseInt(a) + parseInt(temp);
-    temp = '';
-    el.textContent = a;
-}
-
-*/
-
-function consolla() {
-    console.log('Temp: ' + temp);
-    console.log('Ris: ' + a);
-    console.log('Op: ' + prossOp);
-}
-
-
-// Display value in rsult test area
-function display(valore) {
-    el.textContent = valore;
-}
-// Delete
-function cancella() {
-    if (temp != '') {
-        temp = '';
-        display(a);
-    }
-}
-//reset
-function resetta() {
-    temp = '';
-    a = 0;
-    primo = true;
-    prossOp = '';
-    chiuso = false;
+function updateTemp(val) {
+    temp = temp + '' + val;
     display(temp);
 }
 
-//=
-function chiudi() {
-    if (a && temp && prossOp) {
-        a = eseguiOp(a, temp, prossOp);
-        prossOp = '';
-        display(a);
-        temp = '';
-        chiuso = true;
-    }
-}
-
-// Operations
-function eseguiOp(x, y, operando) {
-    y = parseFloat(y);
-    if (operando === 'somma') {
-        x = x + y;
-        return x;
-    }
-    if (operando === 'dividi') {
-        x = x / y;
-        return x;
-    }
-    if (operando === 'moltiplica') {
-        x = x * y;
-        return x;
-    }
-    if (operando === 'sottrai') {
-        x = x - y;
-        return x;
-    }
-    prossOp = operando;
-}
-
-// Number pad
-function ik(val) {
-    if (val || val === 0) {
-        if(chiuso) {
-            resetta();
-            temp = temp + "" + temp;
-        };
-        temp = temp + "" + val;
-        display(temp);
-    }
-}
-
-// OPeration pad
-function operazione(op) {
-    if (primo) {
-        primo = false;
-        prossOp = op;
-        a = parseFloat(temp);
-        cancella();
-    } else if (temp != '' && prossOp != '') {
-        a = eseguiOp(a, temp, prossOp);
-        prossOp = op;
-        cancella();
+function eseguiOp() {
+    if (a != 0) {
+        if (parseFloat(temp)) {
+            b = parseFloat(temp);
+            switch (prevOp) {
+                case 'somma':
+                    ris = a + b;
+                    break;
+                case 'sottrai':
+                    ris = a - b;
+                    break;
+                case 'moltiplica':
+                    ris = a * b;
+                    break;
+                case 'dividi':
+                    ris = a / b;
+                    break;
+            }
+            display(ris);
+            a = ris;
+            prevOp = $keyValue;
+            temp = '';
+        } else {
+            prevOp = $keyValue;
+        }
     } else {
-        prossOp = op;
-        chiuso = false;
+        a = parseFloat(temp);
+        display(a)
+        prevOp = $keyValue;
+        temp = '';
     }
 }
+
+function special(val) {
+    switch (val) {
+        case 'cancella':
+            temp = '';
+            display(a);
+            break;
+        case 'reset':
+            temp = '';
+            a = 0;
+            prevOp = '';
+            display(temp);
+            break;
+        case 'uguale':
+            eseguiOp();
+            a = ris;
+            prevOp = '';
+            temp = '';
+            break;
+    }
+}
+
+$('#pad-grid').on('click', function (event) {
+    var $keyPressed = $(event.target).parent();
+    $keyValue = $keyPressed.attr('value');
+
+    if ($keyPressed.hasClass('number')) {
+        updateTemp($keyValue);
+    } else if ($keyPressed.hasClass('operation')) {
+        eseguiOp();
+    } else {
+        special($keyValue);
+    }
+})

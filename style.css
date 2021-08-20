@@ -1,18 +1,3 @@
-:root {
-    --grigio-chiaro: rgb(58, 71, 100);
-    --grigio-medio: hsl(223, 31%, 20%);
-    --grigio-scuro: hsl(224, 36%, 15%);
-
-    --tasto-grigio: hsl(225, 21%, 49%);
-    --tasto-grigio-ombra: hsl(224, 28%, 35%);
-    --tasto-rosso: hsl(6, 63%, 50%);
-    --tasto-rosso-ombra: hsl(6, 70%, 34%);
-    --tasto-chiaro: hsl(30, 25%, 89%);
-    --tasto-chiaro-ombra: hsl(28, 16%, 65%);
-
-    --misura-base: 32px;
-}
-
 /* Reset */
 html,
 body,
@@ -141,12 +126,11 @@ table {
 
 /* Fine reset */
 
-body.theme--dark {
-    background-color: var(--grigio-chiaro);
+body {
+    background-color: var(--body-bg);
     font-family: "Spartan";
     padding-top: 3px;
 }
-
 .main {
     height: 100vh;
     width: 100vw;
@@ -161,7 +145,7 @@ body.theme--dark {
 }
 
 .display {
-    background-color: var(--grigio-scuro);
+    background-color: var(--display-bg);
     border-radius: 8px;
     margin-bottom: 32px;
     min-height: 59px;
@@ -169,14 +153,14 @@ body.theme--dark {
     text-align: right;
 }
 .display h4 {
-    color: #fff;
+    color: var(--text-color-inverse);
     font-size: 48px;
     padding-top: 11px;
 }
 
 /* Grid tasti */
 .pad__grid {
-    background-color: var(--grigio-medio);
+    background-color: var(--keypad-bg);
     border-radius: 16px;
     display: grid;
     grid-gap: 26px;
@@ -198,7 +182,6 @@ body.theme--dark {
 }
 .tasto:after {
     content: "";
-    background-color: var(--tasto-chiaro-ombra);
     border-radius: 8px;
     display: block;
     height: 100%;
@@ -213,7 +196,7 @@ body.theme--dark {
     border-radius: 8px;
     display: block;
     left: 0;
-    padding: 12px 0 8px;
+    line-height: 1.65em;
     position: absolute;
     top: 0;
     width: 100%;
@@ -227,35 +210,37 @@ body.theme--dark {
 .tasto--grigio p {
     padding: 19px 0 14px;
 }
-.tasto--large p {
-    padding: 18px 0 16px;
+.tasto--large p, .tasto--special p {
+    line-height: 3em;
 }
 
 /* Colori tasti */
-
-.tasto--grigio:after {
-    background-color: var(--tasto-grigio-ombra);
+.tasto--base:after {
+    background-color: var(--key-shadow);
 }
-.tasto--rosso:after {
-    background-color: var(--tasto-rosso-ombra);
+.tasto--special:after {
+    background-color: var(--key-shadow-special);
+}
+.tasto--end:after {
+    background-color: var(--key-shadow-end);
 }
 
 .tasto--base p {
-    background-color: var(--tasto-chiaro);
+    background-color: var(--key-bg);
 }
-.tasto--grigio p {
-    background-color: var(--tasto-grigio);
-    color: var(--grigio-chiaro);
+.tasto--special p {
+    background-color: var(--key-bg-special);
+    color: var(--text-color-inverse);
     font-size: 18px;
 }
-.tasto--rosso p {
-    background-color: var(--tasto-rosso);
-    color: #fff;
+.tasto--end p {
+    background-color: var(--key-bg-end);
+    color:var(--text-color-inverse);
     font-size: 18px;
 }
 /* Numeri e testo tasti */
-.tasto--grigio p,
-.tasto--rosso p {
+.tasto--special p,
+.tasto--end p {
     color: #fff;
 }
 .tasto--large {
@@ -269,15 +254,17 @@ body.theme--dark {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+    align-items: flex-end;
+    margin-bottom: 32px;
 }
 /* Titolo */
 .titolo__container {
-    color: white;
-    font-size: 32px;
-    margin-bottom: 16px;
+    font-size: 12px;
     flex: 0 0 auto;
+}
+.titolo__container h3 {
+    color: var(--text-color-inverse);
+    font-size: 32px;
 }
 /* Stile Flex Container */
 .stile__container {
@@ -285,19 +272,19 @@ body.theme--dark {
     flex-flow: column wrap;
     align-items: flex-end;
 }
-.titolo__container h3 {
-    font-size: 50px;
-}
+
 /* Etichette */
 .etichette__container {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
+    margin-bottom: 4px;
     width: 100%;
 }
 .etichette__container p {
-    color: var(--tasto-chiaro);
-    flex: 0 0 28px;
+    color: var(--text-color-inverse);
+    flex: 0 0 24px;
+    font-size: 12px;
     text-align: center;
     
 }
@@ -311,10 +298,10 @@ body.theme--dark {
     align-items: center;
 }
 .toggle__container p {
-    color: var(--tasto-chiaro);
+    color: var(--text-color);
     font-size: 12px;
     letter-spacing: 0.06em;
-    margin-right: 4px;
+    margin-right: 8px;
 }
 
 .toggle--theme {
@@ -322,7 +309,7 @@ body.theme--dark {
     background: var(--grigio-medio);
     margin: 4px auto;
     overflow: hidden;
-    padding: 0 4px;
+    padding: 2px 4px;
     border-radius: 50px;
     position: relative;
     display: flex;
@@ -336,9 +323,9 @@ body.theme--dark {
 
 .toggle--theme label{
     display: block;
-    flex: 0 0 20px;
-    width: 20px;
-    height: 20px;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
     margin: 3px 3px;
     border-radius: 50px;
     cursor: pointer;
@@ -346,22 +333,24 @@ body.theme--dark {
     text-align: center;
 }
 .toggle_option_slider {
-    width: 20px;
-    height: 20px;
+    background-color: var(--toggle-slider-color);
+    width: 16px;
+    height: 16px;
     position: absolute;
-    top: 3px;
+    top: 5px;
     border-radius: 50px;
     transition: all .4s ease;
 }
-#stile-1:checked ~ .toggle_option_slider {
-    background-color: var(--tasto-rosso);
+
+
+
+#theme--dark:checked ~ .toggle_option_slider {
     left: 6px;
 }
-#stile-2:checked ~ .toggle_option_slider {
-    background-color: var(--tasto-rosso);
+#theme--light:checked ~ .toggle_option_slider {
     left: calc(50% - 10px);
 }
-#stile-3:checked ~ .toggle_option_slider {
-    background-color: var(--tasto-rosso);
+#theme--purple:checked ~ .toggle_option_slider {
     left: calc(100% - 24px);
 }
+
