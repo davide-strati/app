@@ -129,11 +129,10 @@ table {
 body {
     background-color: var(--body-bg);
     font-family: "Spartan";
-    padding-top: 3px;
 }
 .main {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -141,7 +140,9 @@ body {
 }
 
 .calcolatore {
-    width: 540px;
+    box-sizing: border-box;
+    width: 375px;
+    padding: 26px 24px;
 }
 
 .display {
@@ -149,7 +150,7 @@ body {
     border-radius: 8px;
     margin-bottom: 32px;
     min-height: 59px;
-    padding: 16px var(--misura-base);
+    padding: 26px;
     text-align: right;
 }
 .display h4 {
@@ -161,12 +162,13 @@ body {
 /* Grid tasti */
 .pad__grid {
     background-color: var(--keypad-bg);
-    border-radius: 16px;
+    border-radius: 4px;
     display: grid;
-    grid-gap: 26px;
+    grid-column-gap: 13px;
+    grid-row-gap: 17px ;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    padding: 30px;
+    padding: 24px;
 }
 
 .tasto {
@@ -175,7 +177,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 32px;
-    height: 50px;
+    height: 60px;
     position: relative;
     text-align: center;
     z-index: 10;
@@ -186,17 +188,17 @@ body {
     display: block;
     height: 100%;
     left: 0;
-    margin-top: 8px;
     position: absolute;
-    top: 0;
+    top: 4px;
     width: 100%;
     z-index: 1;
 }
 .tasto p {
     border-radius: 8px;
+    color: var(--text-color);    
     display: block;
     left: 0;
-    line-height: 1.65em;
+    line-height: 60px;
     position: absolute;
     top: 0;
     width: 100%;
@@ -204,15 +206,13 @@ body {
 }
 
 .tasto:active p {
-    top: 8px;
+    top: 4px;
 }
 
 .tasto--grigio p {
     padding: 19px 0 14px;
 }
-.tasto--large p, .tasto--special p {
-    line-height: 3em;
-}
+
 
 /* Colori tasti */
 .tasto--base:after {
@@ -353,4 +353,15 @@ body {
 #theme--purple:checked ~ .toggle_option_slider {
     left: calc(100% - 24px);
 }
+
+@media only screen and (min-width: 1440px) {
+    .calcolatore {
+        width: 588px;
+    }
+    .pad__grid {
+        border-radius: 8px;
+        grid-gap: 25px;
+        padding: 30px;
+    }    
+} 
 

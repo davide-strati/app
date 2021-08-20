@@ -43,6 +43,8 @@
 
     /*  Typo */
     --font-size: 32px;
+
+    --misura-base: 16px
 }
 
 /* Dark-theme */
@@ -52,7 +54,7 @@
     --display-bg: var(--grigio-scuro);
     --keypad-bg: var(--grigio-medio);
     /*  Text */
-    --text-color: var(--testo-grgio-blu);
+    --text-color: var(--testo-grigio-blu);
     --text-color-inverse: var(--testo-bianco);
     --title-color: var(--testo-bianco);
     --toggle-state: var(--testo-bianco);
@@ -86,4 +88,26 @@
     --key-shadow-special: var(--tasto-cyan-ombra);
     --key-bg-end: var(--tasto-arancione);
     --key-shadow-end:var(--tasto-arancione-ombra);
+}
+
+/* Theme Purple */
+.theme--purple {
+    /* BGS */
+    --body-bg: var(--purple);
+    --display-bg: var(--purple-medio);
+    --keypad-bg: var(--purple-medio);
+    /*  Text */
+    --text-color: var(--testo-giallo);
+    --text-color-inverse: var(--testo-giallo);
+    --title-color: var(--testo-grigio-giallo);
+    --toggle-state: var(--testo-grigio-giallo);
+    --toggle-slider-color:var(--tasto-azz);
+
+    /* Keypad */;
+    --key-bg: var(--tasto-violet);
+    --key-shadow: var(--tasto-violet-ombra);
+    --key-bg-special:var(--tasto-purple);
+    --key-shadow-special: var(--tasto-purple-ombra);
+    --key-bg-end: var(--tasto-azz);
+    --key-shadow-end:var(--tasto-azz-ombra);
 }
