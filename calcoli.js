@@ -1,23 +1,25 @@
-var a, b, temp, ris, prevOp;
+var a, b, temp, ris, prevOp, notFirst;
 var $keyValue = '';
 temp = '';
 a = 0;
+notFirst = false;
 
-
+// Display the number
 function display(num) {
     $('#ris').text(num);
 }
-
+// Create the temp number
 function updateTemp(val) {
     temp = temp + '' + val;
     display(temp);
 }
 
 function eseguiOp() {
-    if (a != 0) {
-        if (parseFloat(temp)) {
-            b = parseFloat(temp);
-            switch (prevOp) {
+    if (notFirst) {                              // Is not the first basic input
+        // Manage situation after a Delete Press
+        if (parseFloat(temp)) {                 // User changed only the temp value
+            b = parseFloat(temp);               // Parse and store the second value
+            switch (prevOp) {                   // Do math
                 case 'somma':
                     ris = a + b;
                     break;
@@ -31,51 +33,83 @@ function eseguiOp() {
                     ris = a / b;
                     break;
             }
-            display(ris);
-            a = ris;
-            prevOp = $keyValue;
-            temp = '';
+            display(ris);                       // Display result
+            a = ris;                            // Store result as first value
+            prevOp = $keyValue;                 // Store the next op
+            temp = '';                          // Prepare the temp to new value
         } else {
-            prevOp = $keyValue;
+            prevOp = $keyValue;                 // Update the operation after a delete
         }
-    } else {
-        a = parseFloat(temp);
-        display(a)
-        prevOp = $keyValue;
-        temp = '';
+    } else {                                    // It's the first operation
+        notFirst = true;                        // It WAS the first operation
+        a = parseFloat(temp);                   // Parse and store the tamp value
+        prevOp = $keyValue;                     // Store the operation for the next value
+        temp = '';                              // Prepare the temp to new value
+        display(a)                              // Display the number
+        
     }
 }
 
+// Special Keys
 function special(val) {
     switch (val) {
-        case 'cancella':
-            temp = '';
-            display(a);
+        // Delete
+        case 'cancella':                        // Delete only the temp (if user changes the op is handeled by eseguiOp)
+            temp = '';                          // Prepare the temp to new value
+            display(a);                         // Display the first value
             break;
-        case 'reset':
+        // Reset
+        case 'reset':                           // Total Reset
             temp = '';
             a = 0;
             prevOp = '';
+            notFirst = false;
             display(temp);
             break;
+            // Equal to
         case 'uguale':
-            eseguiOp();
-            a = ris;
-            prevOp = '';
-            temp = '';
-            break;
+            if (notFirst && temp) {             // It should not be the first operation added and we should already have a temporary number stored
+                eseguiOp();
+                a = ris;
+                prevOp = '';
+                temp = '';
+                break;
+            }                                   // ????? Should I add a else with break ?????
     }
 }
 
 $('#pad-grid').on('click', function (event) {
     var $keyPressed = $(event.target).parent();
     $keyValue = $keyPressed.attr('value');
-
-    if ($keyPressed.hasClass('number')) {
+    if ($keyPressed.hasClass('number')) {                       // Number keypad pressed
         updateTemp($keyValue);
-    } else if ($keyPressed.hasClass('operation')) {
+    } else if ($keyPressed.hasClass('operation')) {             // Operation pressed
         eseguiOp();
-    } else {
+    } else if ($keyPressed.hasClass('special')) {               // Special pressed
         special($keyValue);
     }
 })
+
+/* ---------- TOGGLER --------*/
+var wrapper = document.getElementsByTagName('html')[0];
+var toggler = document.getElementById('toggler');
+
+function changeTheme(e) {
+    var style, target;
+    target = e.target;
+    if(target.hasAttribute('id')) {
+        style = target.getAttribute('id');
+        wrapper.className = style;
+        console.log(wrapper.className);
+    }  
+    
+}
+
+toggler.addEventListener('click', function(e){
+    changeTheme(e);
+});
+
+/* ---------- END TOGGLER --------*/
+
+
+

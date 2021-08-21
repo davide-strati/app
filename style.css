@@ -298,7 +298,7 @@ body {
     align-items: center;
 }
 .toggle__container p {
-    color: var(--text-color);
+    color: var(--text-color-inverse);
     font-size: 12px;
     letter-spacing: 0.06em;
     margin-right: 8px;
