@@ -241,13 +241,13 @@ footer {
     text-align: center;
 }
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: hsl(228, 38%, 73%);
 }
 /*  End of Footer section */
 
 /*  MEDIA QUERIES */
 @media only screen and (min-width: 1440px) {
-    main {
+    main, footer {
         width: 540px;
         padding: 0;
     }
@@ -267,6 +267,10 @@ footer {
         border-radius: 8px;
         grid-gap: 24px;
         padding: 32px;
+    }
+    /* footer */
+    .attribution {
+        margin-top: 1em;
     }
 }
 
