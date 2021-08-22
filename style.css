@@ -1,182 +1,160 @@
-/* Reset */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol,
-ul {
-    list-style: none;
-}
-blockquote,
-q {
-    quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: "";
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/* Fine reset */
-
+/* BODY AND GENERAL RULES */
 body {
     background-color: var(--body-bg);
     font-family: "Spartan";
-}
-.main {
     height: 100vh;
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
 }
-
-.calcolatore {
+header,
+main,
+footer {
     box-sizing: border-box;
     width: 375px;
     padding: 26px 24px;
 }
 
+/* End body and general rules */
+
+/* --- MAIN --- */
+
+/* -- Main Top section - */
+
+.main-top {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+}
+/* >> Titolo */
+.titolo__container {
+    flex: 0 0 auto;
+}
+.titolo__container h1 {
+    color: var(--text-color-inverse);
+    font-size: 32px;
+    letter-spacing: 0.02em;
+}
+/* >> Stile Flex Container */
+.stile__container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+}
+
+/* Etichette */
+.etichette__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    width: 100%;
+}
+.etichette__container p {
+    color: var(--text-color-inverse);
+    flex: 0 0 24px;
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    text-align: center;
+    transform: translateY(2px);
+}
+/* Toggle Flex Container */
+.toggle__container {
+    flex: 0 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle__container p {
+    color: var(--text-color-inverse);
+    font-size: 12px;
+    letter-spacing: 0.09em;
+    margin-right: 24px;
+    transform: translateY(2px);
+}
+.toggle--theme {
+    position: relative;
+    background: var(--grigio-medio);
+    overflow: hidden;
+    padding: 4px;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.toggle--theme input[type="radio"] {
+    display: none;
+}
+.toggle--theme label {
+    display: block;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1;
+    text-align: center;
+}
+.toggle_option_slider {
+    background-color: var(--toggle-slider-color);
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 5px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+#theme--dark:checked ~ .toggle_option_slider {
+    left: 6px;
+}
+#theme--light:checked ~ .toggle_option_slider {
+    left: calc(50% - 10px);
+}
+#theme--purple:checked ~ .toggle_option_slider {
+    left: calc(100% - 24px);
+}
+
+/* End of Main top */
+
+/* - Display - */
 .display {
     background-color: var(--display-bg);
     border-radius: 8px;
-    margin-bottom: 32px;
-    min-height: 59px;
-    padding: 26px;
+    margin-bottom: 24px;
+    min-height: 34px;
+    padding: 26px 26px 28px 26px;
     text-align: right;
 }
-.display h4 {
+.display h2 {
     color: var(--text-color-inverse);
-    font-size: 48px;
-    padding-top: 11px;
+    font-size: 34px;
+    letter-spacing: 0.03em;
 }
+/* - End of Display - */
 
-/* Grid tasti */
+/* - Key Pad - */
 .pad__grid {
     background-color: var(--keypad-bg);
     border-radius: 4px;
     display: grid;
     grid-column-gap: 13px;
-    grid-row-gap: 17px ;
+    grid-row-gap: 17px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     padding: 24px;
 }
-
 .tasto {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
     height: 60px;
     position: relative;
     text-align: center;
@@ -193,175 +171,103 @@ body {
     width: 100%;
     z-index: 1;
 }
-.tasto p {
+.tasto button {
+    border: none;
     border-radius: 8px;
-    color: var(--text-color);    
+    color: var(--text-color);
     display: block;
+    font-family: "Spartan";
+    font-size: 28px;
     left: 0;
+    letter-spacing: 0.085em;
     line-height: 60px;
+    margin: 0;
+    padding: 0;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 2;
 }
-
-.tasto:active p {
+.tasto:active button {
     top: 4px;
 }
 
-.tasto--grigio p {
-    padding: 19px 0 14px;
+/* Special buttons: del and reset */
+.tasto--special button {
+    font-size: 18px;
 }
 
-
-/* Colori tasti */
+/* Key colors */
 .tasto--base:after {
     background-color: var(--key-shadow);
 }
 .tasto--special:after {
     background-color: var(--key-shadow-special);
 }
-.tasto--end:after {
+.tasto--uguale:after {
     background-color: var(--key-shadow-end);
 }
 
-.tasto--base p {
+.tasto--base button {
     background-color: var(--key-bg);
 }
-.tasto--special p {
+.tasto--special button {
     background-color: var(--key-bg-special);
     color: var(--text-color-inverse);
     font-size: 18px;
 }
-.tasto--end p {
+.tasto--uguale button {
     background-color: var(--key-bg-end);
-    color:var(--text-color-inverse);
+    color: var(--text-color-inverse);
     font-size: 18px;
 }
-/* Numeri e testo tasti */
+
+/* Numbers and text */
 .tasto--special p,
-.tasto--end p {
+.tasto--uguale p {
     color: #fff;
 }
 .tasto--large {
     grid-column: span 2;
 }
 
-/* Fine grid tasti */
+/* - End of Key Pad - */
 
-/* TOGGLE */
-.header {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 32px;
-}
-/* Titolo */
-.titolo__container {
-    font-size: 12px;
-    flex: 0 0 auto;
-}
-.titolo__container h3 {
-    color: var(--text-color-inverse);
-    font-size: 32px;
-}
-/* Stile Flex Container */
-.stile__container {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-end;
-}
+/* --- End of main --- */
 
-/* Etichette */
-.etichette__container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    margin-bottom: 4px;
-    width: 100%;
-}
-.etichette__container p {
-    color: var(--text-color-inverse);
-    flex: 0 0 24px;
-    font-size: 12px;
-    text-align: center;
-    
-}
-
-/* Toggle Flex Container */
-.toggle__container {
-    flex: 0 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-}
-.toggle__container p {
-    color: var(--text-color-inverse);
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    margin-right: 8px;
-}
-
-.toggle--theme {
-    position: relative;
-    background: var(--grigio-medio);
-    margin: 4px auto;
-    overflow: hidden;
-    padding: 2px 4px;
-    border-radius: 50px;
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
-
-.toggle--theme input[type=radio]{
-    display: none;
-}
-
-.toggle--theme label{
-    display: block;
-    flex: 0 0 16px;
-    width: 16px;
-    height: 16px;
-    margin: 3px 3px;
-    border-radius: 50px;
-    cursor: pointer;
-    z-index: 1;
+/*  Footer section */
+.attribution {
+    font-size: 11px;
     text-align: center;
 }
-.toggle_option_slider {
-    background-color: var(--toggle-slider-color);
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    top: 5px;
-    border-radius: 50px;
-    transition: all .4s ease;
+.attribution a {
+    color: hsl(228, 45%, 44%);
 }
+/*  End of Footer section */
 
-
-
-#theme--dark:checked ~ .toggle_option_slider {
-    left: 6px;
-}
-#theme--light:checked ~ .toggle_option_slider {
-    left: calc(50% - 10px);
-}
-#theme--purple:checked ~ .toggle_option_slider {
-    left: calc(100% - 24px);
-}
-
+/*  MEDIA QUERIES */
 @media only screen and (min-width: 1440px) {
-    .calcolatore {
-        width: 588px;
+    main {
+        width: 540px;
+        padding: 0;
     }
+    /* - Display - */
+    .display {
+        min-height: 48px;
+        padding: 40px 36px 41px 36px;
+        text-align: right;
+    }
+    .display h2 {
+        font-size: 48px;
+        color: var(--text-color-inverse);
+        letter-spacing: 0.02em;
+    }
+    /* - End of Display - */
     .pad__grid {
         border-radius: 8px;
-        grid-gap: 25px;
-        padding: 30px;
-    }    
-} 
+        grid-gap: 24px;
+        padding: 32px;
+    }
+}
 
+/*  END OF MEDIA QUERIES */

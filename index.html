@@ -1,111 +1,121 @@
 <!DOCTYPE html>
-<html lang="en" class='theme--dark'>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
-    <!--  Style  -->
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Calculator</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+  <!--  Style  -->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Calculator app</title>
 </head>
 
-<body>
-    <div class="main">
-        <div class="calcolatore">
-            <div class="header">
-                <div class="titolo__container">
-                    <h3>calc</h3>
-                </div>
-                <div class="stile__container">
-                    <div class="etichette__container">
-                        <p>1</p>
-                        <p>2</p>
-                        <p>3</p>
-                    </div>
-                    <div class="toggle__container">
-                        <p>THEME</p>
-                        <div id="toggler" class="toggle toggle--theme">
-                           <input type="radio" class="toggle-option" id="theme--dark" name="toggle_option" checked >
-                           <input type="radio" class="toggle-option" id="theme--light" name="toggle_option" >
-                           <input type="radio" class="toggle-option" id="theme--purple" name="toggle_option" >
-                           <label for="theme--dark"></label>
-                           <label for="theme--light"></label>
-                           <label for="theme--purple"></label>
-                           <div class="toggle_option_slider"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="display">
-                <h4 id="ris" class="risultato"></h4>
-            </div>
-            <div id="pad-grid" class="pad__grid">
-                <div class="tasto tasto--base number" value="7">
-                    <p>7</p>
-                </div>
-                <div class="tasto tasto--base number" value="8">
-                    <p>8</p>
-                </div>
-                <div class="tasto tasto--base number" value="9">
-                    <p>9</p>
-                </div>
-                <div class="tasto tasto--special special"  value="cancella">
-                    <p>DEL</p>
-                </div>
-                <div class="tasto tasto--base number" value="4">
-                    <p>4</p>
-                </div>
-                <div class="tasto tasto--base number" value="5">
-                    <p>5</p>
-                </div>
-                <div class="tasto tasto--base number" value="6">
-                    <p>6</p>
-                </div>
-                <div class="tasto tasto--base operation" value="somma">
-                    <p>+</p>
-                </div>
-                <div class="tasto tasto--base number" value="1">
-                    <p>1</p>
-                </div>
-                <div class="tasto tasto--base number" value="2">
-                    <p>2</p>
-                </div>
-                <div class="tasto tasto--base number" value="3">
-                    <p>3</p>
-                </div>
-                <div class="tasto tasto--base operation" value="sottrai">
-                    <p>-</p>
-                </div>
-                <div class="tasto tasto--base number" value=".">
-                    <p>,</p>
-                </div>
-                <div class="tasto tasto--base number" value="0">
-                    <p>0</p>
-                </div>
-                <div class="tasto tasto--base operation" value="dividi">
-                    <p>/</p>
-                </div>
-                <div class="tasto tasto--base operation" value="moltiplica">
-                    <p>x</p>
-                </div>
-
-                <div class="tasto tasto--large tasto--special special" value="reset">
-                    <p>RESET</p>
-                </div>
-                <div class="tasto tasto--large tasto--end special" value="uguale">
-                    <p>=</p>
-                </div>
-            </div>
+<body class="theme--dark">
+  <main role="main">
+    <section class="main-top">
+      <div class="titolo__container">
+        <h1>calc</h1>
+      </div>
+      <div class="stile__container">
+        <div class="etichette__container">
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
         </div>
+        <div class="toggle__container">
+          <p>THEME</p>
+          <div id="toggler" class="toggle toggle--theme">
+            <input type="radio" class="toggle-option" id="theme--dark" name="toggle_option" checked>
+            <input type="radio" class="toggle-option" id="theme--light" name="toggle_option">
+            <input type="radio" class="toggle-option" id="theme--purple" name="toggle_option">
+            <label for="theme--dark"></label>
+            <label for="theme--light"></label>
+            <label for="theme--purple"></label>
+            <div class="toggle_option_slider"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="display">
+      <!-- Here goes the display called by the js -->
+    </section>
+    <section id="pad-grid" class="pad__grid">
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="7">7</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="8">8</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="9">9</button>
+      </div>
+      <div class="tasto tasto--special">
+        <button class="special" type="button special" data-value="del">DEL</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="4">4</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="5">5</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="6">6</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="operation" type="button" data-value="somma">+</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="1">1</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="2">2</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="3">3</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="operation" type="button" data-value="sottrai">-</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value=".">.</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="number" type="button" data-value="0">0</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="operation" type="button" data-value="dividi">/</button>
+      </div>
+      <div class="tasto tasto--base">
+        <button class="operation" type="button" data-value="moltiplica">x</button>
+      </div>
+      <div class="tasto tasto--large tasto--special">
+        <button class="special" type="button" data-value="reset">RESET</button>
+      </div>
+      <div class="tasto tasto--large tasto--uguale">
+        <button class="special" type="button" data-value="uguale">=</button>
+      </div>
+    </section>
+
+  </main>
+  <footer role="contentinfo">
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
     </div>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="calcoli.js"></script>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="calcoli.js"></script>
+
 </body>
+
 </html>

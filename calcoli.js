@@ -6,7 +6,9 @@ notFirst = false;
 
 // Display the number
 function display(num) {
-    $('#ris').text(num);
+    var risultato ='<h2 id="ris" class="risultato">' + num + '</h2>'
+    console.log(risultato);
+    $('.display').html(risultato);
 }
 // Create the temp number
 function updateTemp(val) {
@@ -54,7 +56,7 @@ function eseguiOp() {
 function special(val) {
     switch (val) {
         // Delete
-        case 'cancella':                        // Delete only the temp (if user changes the op is handeled by eseguiOp)
+        case 'del':                        // Delete only the temp (if user changes the op is handeled by eseguiOp)
             temp = '';                          // Prepare the temp to new value
             display(a);                         // Display the first value
             break;
@@ -79,8 +81,8 @@ function special(val) {
 }
 
 $('#pad-grid').on('click', function (event) {
-    var $keyPressed = $(event.target).parent();
-    $keyValue = $keyPressed.attr('value');
+    var $keyPressed = $(event.target);
+    $keyValue = $keyPressed.attr('data-value');
     if ($keyPressed.hasClass('number')) {                       // Number keypad pressed
         updateTemp($keyValue);
     } else if ($keyPressed.hasClass('operation')) {             // Operation pressed
@@ -91,7 +93,7 @@ $('#pad-grid').on('click', function (event) {
 })
 
 /* ---------- TOGGLER --------*/
-var wrapper = document.getElementsByTagName('html')[0];
+var wrapper = document.getElementsByTagName('body')[0];
 var toggler = document.getElementById('toggler');
 
 function changeTheme(e) {
